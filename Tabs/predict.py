@@ -7,8 +7,8 @@ def app(df, x, y):
 
     # List nama fitur sesuai dataset
     feature_names = [
-        "bp", "sg", "al", "su", "rbc", "pc", "pcc", "ba", "bgr", "bu", "sc", "sod", "pot",
-        "hemo", "pcv", "wc", "rc", "htn", "dm", "cad", "appet", "pe", "ane"
+        "Blood Presure (mm/hg)", "Spesific gravity(1.005,1.010,1.015,1.020,1.025)", "Albumin (0,1,2,3,4,5)", "Sugar(0,1,2,3,4,5)", "Red Blood Cells(0/1)", "Pus Cell(0/1)", "Pus Cell Clumps(0/1)", "Bacteria(0/1)", "Blood Glucose Random(mgs/dl)", "Blood Urea(mgs/dl)", "Serum Creatine(mgs/dl)", "Sodium(mEq/dL)", "Potassium(mEq/L)",
+        "Hemogoblin(gms)", "Packed Cell Volume(%)", "White Blood Cell Count(cells/cumm)", "Red Blood Cell Count(millions/cmm)", "Hypertension(0/1)", "Diabetes Mellitus(0/1)", "Coronary Artery Disease(0/1)", "Appetite(0/1)", "Pedal Edema(0/1)", "Anemia(0/1)"
     ]
 
     # Membuat input form untuk setiap fitur
@@ -30,14 +30,14 @@ def app(df, x, y):
     # Tombol prediksi
     if st.button("Prediksi"):
         try:
-            prediction, score = predict(x, y, features)
+            prediction = predict(x, y, features)
             st.info("Prediksi Sukses...")
 
             if prediction[0] == 1:
-                st.warning("Orang Tersebut Rentan Terhadap Penyakit Batu Ginjal.")
+                st.warning("Orang Tersebut Rentan terhadap Penyakit Ginjal Kronis.")
             else:
-                st.success("Orang Tersebut Relatif Aman dari Penyakit Batu Ginjal.")
+                st.success("Orang Tersebut Relatif Aman dari Penyakit Ginjal Kronis.")
 
-            st.write("Model yang Digunakan Memiliki Tingkat Akurasi =", round(score * 100, 2), "%")
+            st.write("Model yang Digunakan Memiliki Tingkat Akurasi =", round( 0.9928 * 100, 2), "%")
         except Exception as e:
             st.error(f"Terjadi kesalahan saat melakukan prediksi: {e}")

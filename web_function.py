@@ -3,8 +3,12 @@ import numpy as np
 import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 import streamlit as st
+import joblib
 
-@st.cache()
+model = joblib.load('decision_tree_model.pkl')
+
+
+# @st.cache()
 def load_data():
     # Load dataset
     df = pd.read_csv('kidney_clean.csv')
@@ -32,7 +36,7 @@ def preprocess_input(data):
     data = data.fillna(0)  # Ganti NaN dengan 0 atau nilai lain yang sesuai
     return data
 
-@st.cache()
+# @st.cache()
 def train_model(x, y):
     """
     Melatih model DecisionTreeClassifier dengan parameter yang ditentukan.
@@ -61,7 +65,7 @@ def predict(x, y, features):
     Membuat prediksi menggunakan model yang telah dilatih.
     - Validasi fitur input sebelum prediksi.
     """
-    model, score = train_model(x, y)
+    # model, score = train_model(x, y)
 
     # Validasi input fitur
     features = preprocess_features(features, x.columns)
@@ -69,7 +73,7 @@ def predict(x, y, features):
     # Prediksi
     prediction = model.predict(features)
 
-    return prediction, score
+    return prediction
 
 def preprocess_features(features, columns):
     """
