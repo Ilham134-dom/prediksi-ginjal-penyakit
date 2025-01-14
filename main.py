@@ -22,7 +22,7 @@ page = st.sidebar.radio("pages", list(Tabs.keys()))
 df, x, y = load_data()
 
 #kondisi call app function
-if page in ["Prediction", "Visualisation"]:
+if page in ["Visualisation"]:
     Tabs[page].app(df, x,y)
 else:
     Tabs[page].app()

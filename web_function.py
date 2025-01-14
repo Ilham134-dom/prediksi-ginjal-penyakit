@@ -14,9 +14,7 @@ def load_data():
     df = pd.read_csv('kidney_clean.csv')
 
     # Pilih fitur dan label
-    x = df[["bp", "sg", "al", "su", "rbc", "pc", "pcc", "ba",
-            "bgr", "bu", "sc", "sod", "pot", "hemo", "pcv", "wc",
-            "rc", "htn", "dm", "cad", "appet", "pe", "ane"]]
+    x = df[['bp', 'sg', 'bu', 'sc', 'sod', 'hemo', 'pcv', 'wc', 'rc', 'htn', 'dm', 'cad', 'appet', 'pe', 'ane']]
     y = df[['classification']]
 
     # Konversi tipe data jika diperlukan
