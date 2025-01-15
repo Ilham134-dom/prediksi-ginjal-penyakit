@@ -51,7 +51,7 @@ def app():
                 if feature == "Packed Cell Volume(%)":
                     if value < 10.0 or value > 65.0:
                         raise ValueError("Nilai harus berada di antara 10.0-65.0%.")
-                    value /= 100
+                    
                 # White Blood Cell Count (WBC, cells/cumm)
                 if feature == "White Blood Cell Count(cells/cumm)":
                     if value < 1000 or value > 30000:
